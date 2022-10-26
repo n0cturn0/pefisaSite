@@ -815,7 +815,7 @@
                     <div class="subfooter-inner">
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="text-center">Desenvolvimento: <a target="_blank" href="#">Luiz Augusto</a></p>
+                                <p class="text-center">Desenvolvimento: <a target="_blank" href="https://github.com/n0cturn0">Luiz Augusto</a></p>
                             </div>
                         </div>
                     </div>

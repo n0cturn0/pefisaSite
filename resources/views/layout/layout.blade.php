@@ -72,7 +72,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('categoria-create')}}">Categoria</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>
@@ -115,20 +115,7 @@
         
           <div class="row">
             <div class="col-md-12 stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Recent Purchases</p>
-
-
-                  @yield('index')
-                 
-
-
-
-
-                  
-                </div>
-              </div>
+              @yield('index')
             </div>
           </div>
         </div>

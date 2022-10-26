@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoriaController extends Controller
 {
@@ -14,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.categoria.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categoria.create');
     }
 
     /**
@@ -35,7 +36,17 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       $request->validate([
+            'categoria' => 'required|max:255|min:4'
+        ]);
+
+        $categoria = new Categoria();
+        $categoria->categoria = $request->categoria;
+        if($categoria->save())
+        {
+            return back()->with('success', 'Categoria cadastrada com sucesso!');
+        }
     }
 
     /**
@@ -44,9 +55,10 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show()
     {
-        //
+        $categorias = Categoria::all();
+        return view('dashboard.categoria.list',['categorias'=>$categorias]);
     }
 
     /**
@@ -55,9 +67,16 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id=NULL)
     {
-        //
+
+        $categoria = DB::table('categorias')->where('id', $id)->first();
+         return view('dashboard.categoria.edit',['categoria'=>$categoria]);
+      
+       
+    
+    
+        
     }
 
     /**
@@ -67,9 +86,17 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'categoria' => 'required|max:255|min:4'
+        ]);
+        $categoria = Categoria::find($request->id);
+        $categoria->categoria = $request->categoria;
+        if($categoria->save())
+        {
+            return back()->with('success', 'Categoria atualizado com sucesso!');
+        }
     }
 
     /**
@@ -78,8 +105,12 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id = NULL)
     {
-        //
+        $categoria = Categoria::find($id);
+        if($categoria->delete())
+        {
+            return back()->with('success', 'Categoria excluída com sucesso!');
+        }
     }
 }
