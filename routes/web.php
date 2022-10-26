@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Template
+Route::get('/template', [\App\Http\Controllers\templateController::class,'index'])->name('template');
+//Site Capa
+Route::get('/index', [\App\Http\Controllers\SiteController::class,'index'])->name('index');
+
 Route::get('/', function () {
     return view('welcome');
 });
