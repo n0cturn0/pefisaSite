@@ -15,7 +15,7 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+  @endif
       <form class="forms-sample" method="post" action="{{url('insere-categoria')}}">
         @csrf
         <div class="form-group">
