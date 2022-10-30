@@ -151,7 +151,7 @@
                             <div class="header-left clearfix">
                                 <!-- logo -->
                                 <div id="logo" class="logo">
-                                    <a href="/index.html"><img id="logo_img" src="images/logo.png" alt="Toca dos Brindes"></a>
+                                    <a href="/index.html"><img id="logo_img" src="{{asset('asset/images/logo.png')}}" alt="Toca dos Brindes"></a>
                                 </div>
 
                             </div>
@@ -189,66 +189,35 @@
                                                     <li class="dropdown active">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos</a>
                                                         <ul class="dropdown-menu">
+                                                            @foreach ($data['categorias'] as $item)
                                                                     <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">Arma&#231;&#245;es em A&#231;o Sob Medida</a>
+                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">{{$item->categoria}}</a>
                                                                         <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/3/armacoes-em-aco-sob-medida/coluna.html">Coluna</a></li>
-                                                                                    <li><a href="/armacao-de-aco/22/armacoes-em-aco-sob-medida/estribos.html">Estribos</a></li>
-                                                                                    <li><a href="/armacao-de-aco/5/armacoes-em-aco-sob-medida/sapata.html">Sapata</a></li>
-                                                                                    <li><a href="/armacao-de-aco/4/armacoes-em-aco-sob-medida/viga.html">Viga</a></li>
+                                                                            @foreach ($data['produtos'] as $produto)
+                                                                            @if ($produto->idcategoria == $item->id)
+                                                                            <li><a href="/armacao-de-aco/3/armacoes-em-aco-sob-medida/coluna.html">{{$produto->produto}}</a></li>
+                                                                            
+                                                                            @endif
+                                                                        @endforeach
+                                                                                   
+                                                                                    
                                                                         </ul>
                                                                     </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1004/vergalhoes-e-barras.html">Vergalh&#245;es e Barras</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/1012/vergalhoes-e-barras/vergalhao.html">Vergalh&#227;o</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1005/malhas-e-telas.html">Malhas e Telas</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/17/malhas-e-telas/malhas-pop.html">Malhas POP</a></li>
-                                                                                    <li><a href="/armacao-de-aco/18/malhas-e-telas/telas.html">Telas</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1006/arames.html">Arames</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/27/arames/arame-recozido.html">Arame Recozido</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1007/trelicas.html">Treli&#231;as</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/19/trelicas/trelica.html">Treli&#231;a</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1008/pregos.html">Pregos</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/8/pregos/prego-com-cabeca.html">Prego com Cabe&#231;a</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="dropdown ">
-                                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1010/distanciadores.html">Distanciadores</a>
-                                                                        <ul class="dropdown-menu">
-                                                                                    <li><a href="/armacao-de-aco/23/distanciadores/distanciador.html">Distanciador </a></li>
-                                                                                    <li><a href="/armacao-de-aco/32/distanciadores/espacador.html">Espa&#231;ador</a></li>
-                                                                        </ul>
-                                                                    </li>
+                                                                @endforeach
+                                                                   
                                                         </ul>
                                                     </li>
-                                                    <li class="dropdown active">
+                                                    {{-- <li class="dropdown active">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pefisa</a>
                                                         <ul class="dropdown-menu">
                                                             <li><a href="2/html/varejao-do-ferro.html">Sobre Nós</a></li>
                                                             <li><a href="1/forms/faleconosco.html">Contato</a></li>
                                                             <li><a href="5/html/localizacao-varejao-do-ferro.html">Localização</a></li>
                                                         </ul>
-                                                    </li>
+                                                    </li> --}}
                                                     <!-- <li><a href="15/content/list/servicos-construcao-civil.html">Serviços</a></li>
                                                     <li><a href="3/content/list/noticias-construcao-civil.html">Notícias</a></li> -->
-                                                    <li><a href="12/content/list/catalogo-construcao-civil.html">Catálogos</a></li>
+                                                    <li><a href="{{asset('asset/images/perfils.pdf')}}">Catálogos</a></li>
 
                                                 </ul>
                                                 <!-- main-menu end -->
@@ -325,148 +294,34 @@
                                 <h3>Categorias</h3>
                                 <!-- accordion start -->
                                 <!-- ================ -->
+                                @foreach ($data['categorias'] as $item)
                                 <div class="panel-group collapse-style-1" id="accordion">
-
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion" href="#smenu1001" class="collapsable" data-rel="1001" data-bind="smenu1001">
-                                                    <i class="fa fa-check pr-10"></i>Arma&#231;&#245;es em A&#231;o Sob Medida
+                                                    <i class="fa fa-check pr-10"></i>{{$item->categoria}}
                                                 </a>
                                             </h4>
                                         </div>
-                                                <div id="smenu1001" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/3/armacoes-em-aco-sob-medida/coluna.html">Coluna</a></li>
-                                                                    <li><a href="armacao-de-aco/22/armacoes-em-aco-sob-medida/estribos.html">Estribos</a></li>
-                                                                    <li><a href="armacao-de-aco/5/armacoes-em-aco-sob-medida/sapata.html">Sapata</a></li>
-                                                                    <li><a href="armacao-de-aco/4/armacoes-em-aco-sob-medida/viga.html">Viga</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1004" class="collapsable" data-rel="1004" data-bind="smenu1004">
-                                                    <i class="fa fa-check pr-10"></i>Vergalh&#245;es e Barras
-                                                </a>
-                                            </h4>
+                                       
+                                    <div id="smenu1001" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <nav>
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    @foreach ($data['produtos'] as $produto)
+                                                    @if ($produto->idcategoria == $item->id)
+                                                    <li><a href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">{{$produto->produto}}</a></li>
+                                                    @endif
+                                                @endforeach
+                                            
+                                                </ul>
+                                            </nav>
                                         </div>
-                                                <div id="smenu1004" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1004/vergalhoes-e-barras.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/1012/vergalhoes-e-barras/vergalhao.html">Vergalh&#227;o</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
                                     </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1005" class="collapsable" data-rel="1005" data-bind="smenu1005">
-                                                    <i class="fa fa-check pr-10"></i>Malhas e Telas
-                                                </a>
-                                            </h4>
-                                        </div>
-                                                <div id="smenu1005" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1005/malhas-e-telas.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/17/malhas-e-telas/malhas-pop.html">Malhas POP</a></li>
-                                                                    <li><a href="armacao-de-aco/18/malhas-e-telas/telas.html">Telas</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
                                     </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1006" class="collapsable" data-rel="1006" data-bind="smenu1006">
-                                                    <i class="fa fa-check pr-10"></i>Arames
-                                                </a>
-                                            </h4>
-                                        </div>
-                                                <div id="smenu1006" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1006/arames.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/27/arames/arame-recozido.html">Arame Recozido</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1007" class="collapsable" data-rel="1007" data-bind="smenu1007">
-                                                    <i class="fa fa-check pr-10"></i>Treli&#231;as
-                                                </a>
-                                            </h4>
-                                        </div>
-                                                <div id="smenu1007" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1007/trelicas.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/19/trelicas/trelica.html">Treli&#231;a</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1008" class="collapsable" data-rel="1008" data-bind="smenu1008">
-                                                    <i class="fa fa-check pr-10"></i>Pregos
-                                                </a>
-                                            </h4>
-                                        </div>
-                                                <div id="smenu1008" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1008/pregos.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/8/pregos/prego-com-cabeca.html">Prego com Cabe&#231;a</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1010" class="collapsable" data-rel="1010" data-bind="smenu1010">
-                                                    <i class="fa fa-check pr-10"></i>Distanciadores
-                                                </a>
-                                            </h4>
-                                        </div>
-                                                <div id="smenu1010" class="panel-collapse collapse">
-                                                    <div class="panel-body">
-                                                        <nav>
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li><a href="/armacao-de-aco/1010/distanciadores.html">VER TODOS</a></li>
-                                                                    <li><a href="armacao-de-aco/23/distanciadores/distanciador.html">Distanciador </a></li>
-                                                                    <li><a href="armacao-de-aco/32/distanciadores/espacador.html">Espa&#231;ador</a></li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-                                                </div>
-                                    </div>
-
                                 </div>
+                                @endforeach
                                 <!-- accordion end -->
                             </div>
 
@@ -508,12 +363,15 @@
                         </div>
                         <!-- isotope filters end -->
                         <div class="isotope-container row grid-space-10">
+                            @foreach ($data['destaques'] as $item)
+                                
+                            
                                     <div class="col-sm-4 isotope-item destaque">
                                         <div class="image-box shadow bordered text-center mb-20">
                                             <div class="overlay-container">
-                                                <h3><a href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">Viga</a></h3>
+                                                <h3><a href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">{{$item->produto}}</a></h3>
                                                 <a class="img" href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">
-                                                    <img src="content/upload/products/7/thumb/coluna-montada.jpg" alt="Viga" width="250" />
+                                                    <img src="{{asset('storage/produtos/'.$item->imagem)}}" alt="Viga" width="250" />
                                                 </a>
                                                 <div class="overlay-top">
                                                 </div>
@@ -528,166 +386,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/8/armacoes-em-aco-sob-medida/sapata/sapata.html">Sapata</a></h3>
-                                                <a class="img" href="armacao-de-aco/8/armacoes-em-aco-sob-medida/sapata/sapata.html">
-                                                    <img src="content/upload/products/8/thumb/sapata.jpg" alt="Sapata" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/8/armacoes-em-aco-sob-medida/sapata/sapata.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/8/armacoes-em-aco-sob-medida/sapata/sapata.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/9/armacoes-em-aco-sob-medida/estribos/estribos.html">Estribos</a></h3>
-                                                <a class="img" href="/armacao-de-aco/9/armacoes-em-aco-sob-medida/estribos/estribos.html">
-                                                    <img src="content/upload/products/9/thumb/estribos.jpg" alt="Estribos" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/9/armacoes-em-aco-sob-medida/estribos/estribos.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/9/armacoes-em-aco-sob-medida/estribos/estribos.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/23/malhas-e-telas/malhas-pop/malha-pop-leve-20x20-pn-2x3m.html">Malha POP Leve (20X20) PN 2x3M</a></h3>
-                                                <a class="img" href="/armacao-de-aco/23/malhas-e-telas/malhas-pop/malha-pop-leve-20x20-pn-2x3m.html">
-                                                    <img src="content/upload/products/23/thumb/malha-pop.jpg" alt="Malha POP Leve (20X20) PN 2x3M" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/23/malhas-e-telas/malhas-pop/malha-pop-leve-20x20-pn-2x3m.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/23/malhas-e-telas/malhas-pop/malha-pop-leve-20x20-pn-2x3m.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/78/arames/arame-recozido/arame-recozido-torcido-18-bwg-rl-1kg.html">Arame Recozido Torcido 18 BWG RL 1KG </a></h3>
-                                                <a class="img" href="/armacao-de-aco/78/arames/arame-recozido/arame-recozido-torcido-18-bwg-rl-1kg.html">
-                                                    <img src="content/upload/products/78/thumb/imagem-arame.jpg" alt="Arame Recozido Torcido 18 BWG RL 1KG " width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/78/arames/arame-recozido/arame-recozido-torcido-18-bwg-rl-1kg.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/78/arames/arame-recozido/arame-recozido-torcido-18-bwg-rl-1kg.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/89/pregos/prego-com-cabeca/prego-com-cabeca-18x27.html">Prego com Cabe&#231;a 18x27</a></h3>
-                                                <a class="img" href="/armacao-de-aco/89/pregos/prego-com-cabeca/prego-com-cabeca-18x27.html">
-                                                    <img src="content/upload/products/89/thumb/prego.jpg" alt="Prego com Cabe&#231;a 18x27" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/89/pregos/prego-com-cabeca/prego-com-cabeca-18x27.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/89/pregos/prego-com-cabeca/prego-com-cabeca-18x27.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/99/vergalhoes-e-barras/vergalhao/vergalhoes-ca-50-barra-reta.html">Vergalh&#245;es CA-50 - Barra Reta</a></h3>
-                                                <a class="img" href="/armacao-de-aco/99/vergalhoes-e-barras/vergalhao/vergalhoes-ca-50-barra-reta.html">
-                                                    <img src="content/upload/products/99/thumb/vergalhao-arcellor-mittal.jpg" alt="Vergalh&#245;es CA-50 - Barra Reta" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/99/vergalhoes-e-barras/vergalhao/vergalhoes-ca-50-barra-reta.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/99/vergalhoes-e-barras/vergalhao/vergalhoes-ca-50-barra-reta.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/102/distanciadores/distanciador/distanciador-plastico-mr-bi-part18-40-pacote-com-1000-pcs.html">Distanciador Pl&#225;stico MR BI-PART.18-40 (Pacote com 1000 p&#231;s)</a></h3>
-                                                <a class="img" href="/armacao-de-aco/102/distanciadores/distanciador/distanciador-plastico-mr-bi-part18-40-pacote-com-1000-pcs.html">
-                                                    <img src="content/upload/products/102/thumb/91abdfc0d7aa38321f4ad786fcbf51e8b4a350mv2.png" alt="Distanciador Pl&#225;stico MR BI-PART.18-40 (Pacote com 1000 p&#231;s)" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/102/distanciadores/distanciador/distanciador-plastico-mr-bi-part18-40-pacote-com-1000-pcs.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/102/distanciadores/distanciador/distanciador-plastico-mr-bi-part18-40-pacote-com-1000-pcs.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 isotope-item destaque">
-                                        <div class="image-box shadow bordered text-center mb-20">
-                                            <div class="overlay-container">
-                                                <h3><a href="/armacao-de-aco/106/armacoes-em-aco-sob-medida/coluna/coluna.html">Coluna</a></h3>
-                                                <a class="img" href="/armacao-de-aco/106/armacoes-em-aco-sob-medida/coluna/coluna.html">
-                                                    <img src="content/upload/products/106/thumb/coluna-montada.jpg" alt="Coluna" width="250" />
-                                                </a>
-                                                <div class="overlay-top">
-                                                </div>
-                                                <div class="overlay-bottom">
-                                                    <div class="links">
-                                                        <a href="/armacao-de-aco/106/armacoes-em-aco-sob-medida/coluna/coluna.html" class="btn btn-gray-transparent btn-animated btn-sm">Ver Detalhes <i class="pl-10 fa fa-arrow-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="links">
-                                                <a href="/armacao-de-aco/106/armacoes-em-aco-sob-medida/coluna/coluna.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    
                                                                                     
                         </div>
                     </div>
@@ -712,7 +412,7 @@
                                     <h2>certificações ABNT e INMETRO</h2>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mt-10"><a href="/1/forms/faleconosco.html" class="btn btn-animated btn-lg btn-gray-transparent ">Fale Conosco<i class="fa icon-comment pl-20"></i></a></p>
+                                    <p class="mt-10"><a href="#" class="btn btn-animated btn-lg btn-gray-transparent ">Fale Conosco</a></p>
                                 </div>
                             </div>
                         </div>
@@ -733,7 +433,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="footer-content">
-                                    <div class="logo-footer"><img id="logo-footer" src="/Content/images/logo.png" alt=""></div>
+                                    <div class="logo-footer"><img id="logo-footer" src="{{asset('asset/images/logo.png')}}" alt=""></div>
                                     <p>PEFISA</p>
                                     <ul class="list-icons">
                                         <li>
