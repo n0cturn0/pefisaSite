@@ -11,14 +11,14 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $categorias = Categoria::all();
-        $produtos = Produto::all();
-        $destaques = Produto::where('destaque', '=', 1)->get();
-        $data = array(
-            'categorias' => $categorias,
-            'produtos' => $produtos,
-            'destaques' => $destaques
-        );
-        return view('site.index', ['data' => $data]);
+        // $categorias = Categoria::all();
+        // $produtos = Produto::all();
+        // $destaques = Produto::where('destaque', '=', 1)->get();
+        // $data = array(
+        //     'categorias' => $categorias,
+        //     'produtos' => $produtos,
+        //     'destaques' => $destaques
+        // );
+        return view('site.index');
     }
 }

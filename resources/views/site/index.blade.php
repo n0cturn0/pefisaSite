@@ -76,7 +76,8 @@
                             <div class="header-top-first clearfix">
                                 <ul class="list-inline hidden-sm hidden-xs">
                                     <li><i class="fa fa-phone pr-5 pl-10"></i>(67) 3387-6049</li>
-                                    <li><i class="fa fa-whatsapp pr-5 pl-10"></i>(67) 3387-0079</li>
+                                    <li><i class="fa fa-phone pr-5 pl-10"></i>(67) 3387-0079</li> 
+                                    <li><a href="https://wa.me/5567992844960?text=Ol%C3%A1%20estou%20enviando%20esta%20mensagem%20a%20partir%20do%20site"><i class="fa fa-whatsapp pr-5 pl-10"></i>(67) 9284-4960</a></li> 
                                     <li><i class="fa fa-envelope-o pr-5 pl-10"></i>contato@pefisaind.com.br</li>
                                 </ul>
                             </div>
@@ -93,16 +94,16 @@
                                 <div class="header-top-dropdown text-right">
 
                                     <div class="btn-group dropdown">
-                                        <button href="index.html" type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-comment pr-10"></i> Chat</button>
+                                        <button href="https://wa.me/5567992844960?text=Ol%C3%A1%20estou%20enviando%20esta%20mensagem%20a%20partir%20do%20site" type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-comment pr-10"></i> Chat</button>
                                     </div>
                                     <div class="btn-group dropdown">
-                                        <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown" onclick="location.href = '/compra/carrinho.html'"><i class="fa fa-shopping-cart pr-10"></i> Carrinho</button>
+                                        <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown" onclick="location.href = '#l'"><i class="fa fa-shopping-cart pr-10"></i> Carrinho</button>
                                     </div>
                                         <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown" onclick="location.href = '/customers/cadastro.html'"><i class="fa fa-pencil pr-10"></i> Cadastre-se</button>
+                                            <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown" onclick="location.href = '#'"><i class="fa fa-pencil pr-10"></i> Cadastre-se</button>
                                         </div>
                                         <div class="btn-group dropdown">
-                                            <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10" onclick="location.href=''"></i> Minha Conta</button>
+                                            {{-- <button type="button" class="btn dropdown-toggle btn-default btn-sm" data-toggle="dropdown"><i class="fa fa-lock pr-10" onclick="location.href='#'"></i> Minha Conta</button> --}}
                                             <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
                                                 <li>
                                                     <form class="login-form margin-clear" method="post" action="">
@@ -184,12 +185,12 @@
                                             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                                 <!-- main-menu -->
                                                 <ul class="nav navbar-nav ">
-                                                    <li><a href="/index.html">Home</a></li>
+                                                    <li><a href="https://wa.me/5567992844960?text=Ol%C3%A1%20estou%20enviando%20esta%20mensagem%20a%20partir%20do%20site">Home</a></li>
 
-                                                    <li class="dropdown active">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos</a>
-                                                        <ul class="dropdown-menu">
-                                                            @foreach ($data['categorias'] as $item)
+                                                    {{-- <li class="dropdown active">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos</a> --}}
+                                                        {{-- <ul class="dropdown-menu"> --}}
+                                                            {{-- @foreach ($data['categorias'] as $item)
                                                                     <li class="dropdown ">
                                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">{{$item->categoria}}</a>
                                                                         <ul class="dropdown-menu">
@@ -203,10 +204,10 @@
                                                                                     
                                                                         </ul>
                                                                     </li>
-                                                                @endforeach
+                                                                @endforeach --}}
                                                                    
-                                                        </ul>
-                                                    </li>
+                                                        {{-- </ul> --}}
+                                                    {{-- </li> --}}
                                                     {{-- <li class="dropdown active">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pefisa</a>
                                                         <ul class="dropdown-menu">
@@ -245,7 +246,7 @@
                                                                         </tr>
                                                                     </table>
                                                                     <div class="panel-body text-right">
-                                                                        <a href="https://www.varejaodoferro.com.br/compra/carrinho.html" class="btn btn-group btn-gray btn-sm">Finalizar Orçamento</a>
+                                                                        <a href="" class="btn btn-group btn-gray btn-sm">Finalizar Orçamento</a>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -290,40 +291,7 @@
                     <aside class="col-md-3 col-md-offset-1">
                         <div class="sidebar">
 
-                            <div class="block clearfix hidden-xs">
-                                <h3>Categorias</h3>
-                                <!-- accordion start -->
-                                <!-- ================ -->
-                                @foreach ($data['categorias'] as $item)
-                                <div class="panel-group collapse-style-1" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#smenu1001" class="collapsable" data-rel="1001" data-bind="smenu1001">
-                                                    <i class="fa fa-check pr-10"></i>{{$item->categoria}}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                       
-                                    <div id="smenu1001" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <nav>
-                                                <ul class="nav nav-pills nav-stacked">
-                                                    @foreach ($data['produtos'] as $produto)
-                                                    @if ($produto->idcategoria == $item->id)
-                                                    <li><a href="/armacao-de-aco/1001/armacoes-em-aco-sob-medida.html">{{$produto->produto}}</a></li>
-                                                    @endif
-                                                @endforeach
-                                            
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                                <!-- accordion end -->
-                            </div>
+                            
 
                           
 
@@ -334,10 +302,10 @@
 
                             <div class="block clearfix">
                                 <div class="separator-2"></div>
-                                <a href="/8/html/politica-de-entrega.html"><i class="fa fa-angle-double-right"></i> Política de Entrega</a><br>
-                                <a href="/6/html/seguranca-e-privacidade.html"><i class="fa fa-angle-double-right"></i> Segurança e Privacidade</a><br>
-                                <a href="/5/html/localizacao-varejao-do-ferro.html"><i class="fa fa-angle-double-right"></i> Localização</a><br>
-                                <a href="/11/html/como-orcar.html"><i class="fa fa-angle-double-right"></i> Como Orçar?</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Política de Entrega</a><br>
+                                <a href="#"></i> Segurança e Privacidade</a><br>
+                                <a href="#"></i> Localização</a><br>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Como Orçar?</a>
                             </div>
 
                         </div>
@@ -348,13 +316,13 @@
                     <div class="main col-md-8">
                         <!-- page-title start -->
                         <!-- ================ -->
-                        <h1 class="page-title">Produtos em Destaque:</h1>
+                        <h1 class="page-title">CLIQUE AQUI PARA VER O NOSSO CATÁLOGO DE PRODUTOS</h1>
                         <div class="separator-2"></div>
                         <!-- page-title end -->
                         <!-- isotope filters start -->
                         <div class="filters">
                             <ul class="nav nav-pills">
-                                <li class="active"><a href="#" data-filter="*">Todos</a></li>
+                                {{-- <li class="active"><a href="#" data-filter="*">Todos</a></li> --}}
                                 <!-- <li><a href="#" data-filter=".destaque">Em destaque</a></li>
                                 <li><a href="#" data-filter=".promocoes">Promoções</a></li>
                                 <li><a href="#" data-filter=".lancamentos">Lançamentos</a></li>
@@ -363,16 +331,16 @@
                         </div>
                         <!-- isotope filters end -->
                         <div class="isotope-container row grid-space-10">
-                            @foreach ($data['destaques'] as $item)
+                           
                                 
                             
-                                    <div class="col-sm-4 isotope-item destaque">
+                                    {{-- <div class="col-sm-4 isotope-item destaque">
                                         <div class="image-box shadow bordered text-center mb-20">
                                             <div class="overlay-container">
-                                                <h3><a href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">{{$item->produto}}</a></h3>
-                                                <a class="img" href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">
-                                                    <img src="{{asset('storage/produtos/'.$item->imagem)}}" alt="Viga" width="250" />
-                                                </a>
+                                                <h3><a href="armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html">Nosso</a></h3>
+                                            
+                                                  
+                                                
                                                 <div class="overlay-top">
                                                 </div>
                                                 <div class="overlay-bottom">
@@ -385,8 +353,8 @@
                                                 <a href="/armacao-de-aco/7/armacoes-em-aco-sob-medida/viga/viga.html" class="btn btn-primary btn-animated btn-sm">Orçar sem Compromisso <i class="icon-basket-1 pl-10"></i></a>
                                             </div>
                                         </div>
-                                    </div>
-                                    @endforeach
+                                    </div> --}}
+                                   
                                     
                                                                                     
                         </div>
@@ -460,7 +428,7 @@
                                     <div class="separator-2"></div>
                                     <ul class="list-icons">
                                         <li><i class="fa fa-phone pr-10 text-default"></i>(67) 3387-6049</li>
-                                        <li><i class="fa fa-phone pr-10 text-default"></i>(67) 3387-0079</li>
+                                        <li><i class="fa fa-phone pr-10 text-default"></i>(67) 99284-4960</li>
                                         <li><a href="mailto:varejaodoferro@varejaodoferro.com.br"><i class="fa fa-envelope-o pr-10"></i>contato@pefisaind.com.br</a></li>
                                     </ul>
 

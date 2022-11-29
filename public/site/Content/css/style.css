@@ -726,7 +726,7 @@ tbody {
   border-bottom: 1px solid #eaeaea;
 }
 .dark-bg {
-  background-color: #FF9900;
+  background-color: #ff0000;
   color: #cdcdcd;
 }
 .dark-bg + .dark-bg:not(.image-box):not(.full-image-container):not(.full-text-container):not(.full-width-section) {
